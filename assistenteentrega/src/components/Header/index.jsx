@@ -12,7 +12,7 @@ function Header() {
       </IconContainer>
       <LinksContainer>
         <LinkItem to='/'>Home</LinkItem>
-        <LinkItem to='/register'>Cadastrar items</LinkItem>
+        <LinkItem to='/register'>Registrar<br/>estoque</LinkItem>
         <LinkItem to='/map'>Mapa</LinkItem>
         <LinkItem to='/management'>Gerenciar items</LinkItem>
       </LinksContainer>

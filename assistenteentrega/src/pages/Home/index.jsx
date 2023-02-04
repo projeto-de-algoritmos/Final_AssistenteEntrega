@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header/index.jsx';
-import './styles.js'
-
-// import { Container } from './styles';
+import Card from './components/Card/index.jsx';
+import { Container, Content } from './styles';
 
 function Home() {
+  const [options, setOptions] = useState([
+    { name: 'Cadastrar items' },
+    { name: 'Gerenciar items' },
+    { name: 'Mostrar melhor rota' }
+  ])
+
   return (
-    <div className='container'>
+    <Container>
       <Header />
-      <h1>
-        Hello world
-      </h1>
-    </div>
+      <Content>
+        {options.map(item => (
+          <Card />
+        ))}
+      </Content>
+    </Container>
   );
 }
 
