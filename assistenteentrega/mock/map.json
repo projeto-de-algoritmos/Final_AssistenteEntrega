@@ -1,0 +1,87 @@
+{
+  "nodes": [
+    {"id": "RJ", "label": "Rio de Janeiro"},
+    {"id": "SP", "label": "São Paulo"},
+    {"id": "BH", "label": "Belo Horizonte"},
+    {"id": "REC", "label": "Recife"},
+    {"id": "NAT", "label": "Natal"},
+    {"id": "SAL", "label": "Salvador"}
+  ],
+  "edges": [
+    {
+       "start":"RJ",
+       "end":"SP",
+       "weight":524
+    },
+    {
+       "start":"RJ",
+       "end":"BH",
+       "weight":753
+    },
+    {
+       "start":"RJ",
+       "end":"REC",
+       "weight":2948
+    },
+    {
+       "start":"RJ",
+       "end":"NAT",
+       "weight":2725
+    },
+    {
+       "start":"RJ",
+       "end":"SAL",
+       "weight":2397
+    },
+    {
+       "start":"SP",
+       "end":"BH",
+       "weight":285
+    },
+    {
+       "start":"SP",
+       "end":"REC",
+       "weight":987
+    },
+    {
+       "start":"SP",
+       "end":"NAT",
+       "weight":1402
+    },
+    {
+       "start":"SP",
+       "end":"SAL",
+       "weight":1279
+    },
+    {
+       "start":"BH",
+       "end":"REC",
+       "weight":766
+    },
+    {
+       "start":"BH",
+       "end":"NAT",
+       "weight":1139
+    },
+    {
+       "start":"BH",
+       "end":"SAL",
+       "weight":1148
+    },
+    {
+       "start":"REC",
+       "end":"NAT",
+       "weight":201
+    },
+    {
+       "start":"REC",
+       "end":"SAL",
+       "weight":580
+    },
+    {
+       "start":"NAT",
+       "end":"SAL",
+       "weight":383
+    }
+ ]
+}
