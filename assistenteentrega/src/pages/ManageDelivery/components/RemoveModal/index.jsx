@@ -16,17 +16,17 @@ import { useDispatch } from 'react-redux';
 // import { Container } from './styles';
 
 function RemoveItemModal(props) {
-  const [id, setId] = useState(-1)
+  const [nome, setNome] = useState('')
 
   const { isOpen, onRequestClose } = props
   const dispatch = useDispatch()
 
   const removeItem = () => {
-    dispatch(remover(id))
+    dispatch(remover(nome))
   }
 
   const clearFields = () => {
-    setId('')
+    setNome('')
   }
 
   const handleConfirm = () => {
@@ -64,8 +64,7 @@ function RemoveItemModal(props) {
         </Header>
         <Content>
           <FormContent>
-            {/* Dropdown */}
-            {/* <InputText value={nome} onChange={(event) => setNome(event.target.value)} label="Nome" type="text"/> */}
+            <InputText value={nome} onChange={(event) => setNome(event.target.value)} label="Nome" type="text"/>
           </FormContent>
           <AddButton onClick={handleConfirm}>Confirmar</AddButton>
         </Content>

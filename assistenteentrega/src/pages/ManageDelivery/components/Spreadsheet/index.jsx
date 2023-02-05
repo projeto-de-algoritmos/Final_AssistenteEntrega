@@ -9,7 +9,8 @@ import Paper from '@mui/material/Paper';
 import { useSelector } from 'react-redux';
 
 export default function SpreadSheet() {
-  const items = useSelector(state => state.estoque.items)
+  const delivery = useSelector(state => state.delivery.entregas)
+  
   
   return (
     <TableContainer component={Paper}>
@@ -17,22 +18,22 @@ export default function SpreadSheet() {
         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
-            <TableCell>Nome</TableCell>
-            <TableCell align="right">Valor (R$)</TableCell>
+            <TableCell align="right">Endereco</TableCell>
+            <TableCell align="right">Data</TableCell>
             <TableCell align="right">Peso (Kg)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((row) => (
+          {delivery.map((row) => (
             <TableRow
-              key={row.nome}
+              key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
                 {row.id}
               </TableCell>
-              <TableCell align="right">{row.nome}</TableCell>
-              <TableCell align="right">{row.valor}</TableCell>
+              <TableCell align="right">{row.endereco}</TableCell>
+              <TableCell align="right">{row.data}</TableCell>
               <TableCell align="right">{row.peso}</TableCell>
             </TableRow>
           ))}

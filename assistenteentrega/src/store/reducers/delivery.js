@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
+import JSON_DELIVERY from '../../mock/entregas.json'
 
 const initialState = {
   entregas: [],
 }
 
 export const deliveryReducer = createSlice({
-  name: 'estoque',
+  name: 'entrega',
   initialState,
   reducers: {
     adicionarEntrega: (state, action) => {
@@ -26,10 +27,14 @@ export const deliveryReducer = createSlice({
       const newItems = state.items.filter((item) => item.id !== action.payload)
       state.items = newItems
     },
+    populateEntrega: (state, action) => {
+      const { entregas } = JSON_DELIVERY
+      state.entregas = entregas
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { adicionarItemCarrinho, atualizarItemCarrinho, removerItemCarrinho } = deliveryReducer.actions
+export const { adicionarItemCarrinho, atualizarItemCarrinho, removerItemCarrinho, populateEntrega } = deliveryReducer.actions
 
 export default deliveryReducer.reducer

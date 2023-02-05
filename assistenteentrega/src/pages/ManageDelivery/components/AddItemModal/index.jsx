@@ -10,30 +10,35 @@ import {
   InputText
 } from './styles';
 import { FiX } from 'react-icons/fi'
+import CurrencyInput from '../../../../components/CurrencyInput'
 import { AddButton } from '../../../../components/baseComponents';
-import { remover } from '../../../../store/reducers/estoque';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { Container } from './styles';
 
-function RemoveItemModal(props) {
-  const [id, setId] = useState(-1)
+function AddItemModal(props) {
+  const estoque = useSelector(state => state.estoque)
+  const [items, setItems] = useState([])
+  const [data, setData] = useState('')
+  const [local, setLocal] = useState('')
 
-  const { isOpen, onRequestClose } = props
-  const dispatch = useDispatch()
-
-  const removeItem = () => {
-    dispatch(remover(id))
-  }
+  const { isOpen, onRequestClose, onClick } = props
 
   const clearFields = () => {
-    setId('')
+    setItems([])
+    setData('')
+    setLocal('')
   }
 
   const handleConfirm = () => {
-    removeItem()
+    onClick({
+      items,
+      data,
+      local,
+    })
     clearFields()
-    onRequestClose()
   }
+
+  
 
   return (
     <ReactModal
@@ -46,7 +51,7 @@ function RemoveItemModal(props) {
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
           width: 450,
-          height: 300,
+          height: 500,
           borderRadius: 8,
         }
       }}
@@ -64,8 +69,14 @@ function RemoveItemModal(props) {
         </Header>
         <Content>
           <FormContent>
-            {/* Dropdown */}
-            {/* <InputText value={nome} onChange={(event) => setNome(event.target.value)} label="Nome" type="text"/> */}
+            {/*Colocar dropdown estoque */}
+            <select>
+              {estoque?.items.map((item) => (
+                <option value={item}>{item.nome}</option>
+              ))}
+            </select>
+            <InputText value={data} onChange={(event) => setData(event.target.value)} label="Data" type="date"/>
+            {/*Colocar dropdown local */}
           </FormContent>
           <AddButton onClick={handleConfirm}>Confirmar</AddButton>
         </Content>
@@ -74,4 +85,4 @@ function RemoveItemModal(props) {
   )
 }
 
-export default RemoveItemModal;
+export default AddItemModal;

@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Header from '../../components/Header/index.jsx';
-import Card from './components/Card/index.jsx';
+import { populateEntrega } from '../../store/reducers/delivery.js';
+import { populateEstoque } from '../../store/reducers/estoque.js';
 import { Container, Content } from './styles';
 
 function Home() {
-  const [options, setOptions] = useState([
-    { name: 'Cadastrar items' },
-    { name: 'Gerenciar items' },
-    { name: 'Mostrar melhor rota' }
-  ])
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(populateEstoque())
+    dispatch(populateEntrega())
+  }, [])
 
   return (
     <Container>
       <Header />
       <Content>
-        {options.map(item => (
-          <Card />
-        ))}
       </Content>
     </Container>
   );

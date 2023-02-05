@@ -1,0 +1,58 @@
+{
+  "entregas": [
+    {
+      "id": 1,
+      "data": "2022-12-01",
+      "endereco": "RJ",
+      "peso": "5",
+      "items": [
+        {
+          "id": 1,
+          "nome": "item1",
+          "valor": 10,
+          "peso": 2
+        },
+        {
+          "id": 2,
+          "nome": "item2",
+          "valor": 5,
+          "peso": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "data": "2022-12-02",
+      "endereco": "RJ",
+      "peso": "3",
+      "items": [
+        {
+          "id": 2,
+          "nome": "item2",
+          "valor": 5,
+          "peso": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "data": "2022-12-03",
+      "endereco": "BH",
+      "peso": "7",
+      "items": [
+        {
+          "id": 1,
+          "nome": "item1",
+          "valor": 10,
+          "peso": 2
+        },
+        {
+          "id": 5,
+          "nome": "item5",
+          "valor": 25,
+          "peso": 5
+        }
+      ]
+    }
+  ]
+}
