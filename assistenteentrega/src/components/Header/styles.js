@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const LinksContainer = styled.div`
   display: flex;
-  flex: 0.4;
+  flex: 0.3;
   align-items: center;
   justify-content: space-between;
 `

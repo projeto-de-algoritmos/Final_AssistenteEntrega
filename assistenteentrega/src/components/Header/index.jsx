@@ -12,9 +12,8 @@ function Header() {
       </IconContainer>
       <LinksContainer>
         <LinkItem to='/'>Home</LinkItem>
-        <LinkItem to='/register'>Registrar<br/>estoque</LinkItem>
-        <LinkItem to='/map'>Agendar<br/>entrega</LinkItem>
-        <LinkItem to='/management'>Fazer<br/>entrega</LinkItem>
+        <LinkItem to='/estoque'>Estoque</LinkItem>
+        <LinkItem to='/entrega'>Entregas</LinkItem>
       </LinksContainer>
     </Container>
   );
