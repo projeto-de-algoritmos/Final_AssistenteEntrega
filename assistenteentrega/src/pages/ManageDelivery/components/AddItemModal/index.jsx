@@ -13,14 +13,22 @@ import { FiX } from 'react-icons/fi'
 import CurrencyInput from '../../../../components/CurrencyInput'
 import { AddButton } from '../../../../components/baseComponents';
 import { useSelector } from 'react-redux';
+import JSON_MAP from '../../../../mock/map.json'
 // import { Container } from './styles';
 
 function AddItemModal(props) {
   const estoque = useSelector(state => state.estoque)
+  
   const [items, setItems] = useState([])
   const [local, setLocal] = useState('')
 
   const { isOpen, onRequestClose, onClick } = props
+
+  const selectStyle = {
+    padding: "10px", 
+    backgroundColor: "#edf2ff", 
+    border: "none"
+  }
 
   const clearFields = () => {
     setItems([])
@@ -35,7 +43,12 @@ function AddItemModal(props) {
     clearFields()
   }
 
-  
+  var cidades = []
+  for (var cidade of JSON_MAP.nodes) {
+    if(cidade.id != "BSB"){
+      cidades.push(cidade)
+    }
+  }
 
   return (
     <ReactModal
@@ -66,13 +79,22 @@ function AddItemModal(props) {
         </Header>
         <Content>
           <FormContent>
+            <h2>Destino:</h2>
+            {/*Colocar dropdown local */}
+            <select style={selectStyle}>
+              {cidades.map((item) => (
+                <option value={item}>{item.label}</option>
+              ))}
+            </select>
+            <br></br>
+            <h2>Itens:</h2>
             {/*Colocar dropdown estoque */}
-            <select>
+            <select style={selectStyle}>
               {estoque?.items.map((item) => (
                 <option value={item}>{item.nome}</option>
               ))}
             </select>
-            {/*Colocar dropdown local */}
+            
           </FormContent>
           <AddButton onClick={handleConfirm}>Confirmar</AddButton>
         </Content>
