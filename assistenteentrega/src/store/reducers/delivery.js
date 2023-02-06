@@ -35,6 +35,6 @@ export const deliveryReducer = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { adicionarItemCarrinho, atualizarItemCarrinho, removerItemCarrinho, populateEntrega } = deliveryReducer.actions
+export const { adicionarEntrega, finalizarEntrega, populateEntrega } = deliveryReducer.actions
 
 export default deliveryReducer.reducer

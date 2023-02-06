@@ -35,7 +35,7 @@ const FormContent = styled.div`
 
 export const Label = styled.label`
   color: ${colors.bg01};
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   font-weight: bold;
   margin-top: 8px;
 `

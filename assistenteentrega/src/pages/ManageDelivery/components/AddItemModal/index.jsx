@@ -14,6 +14,7 @@ import CurrencyInput from '../../../../components/CurrencyInput'
 import { AddButton } from '../../../../components/baseComponents';
 import { useSelector } from 'react-redux';
 import JSON_MAP from '../../../../mock/map.json'
+import QuantityPicker from '../../../../components/quantitySelector/QuantityPicker';
 // import { Container } from './styles';
 
 function AddItemModal(props) {
@@ -21,6 +22,8 @@ function AddItemModal(props) {
   
   const [items, setItems] = useState([])
   const [local, setLocal] = useState('')
+  const [quantidade, setQuantidade] = useState(0)
+  const [carga, setCarga] = useState()
 
   const { isOpen, onRequestClose, onClick } = props
 
@@ -29,7 +32,7 @@ function AddItemModal(props) {
     backgroundColor: "#edf2ff", 
     border: "none"
   }
-
+  
   const clearFields = () => {
     setItems([])
     setLocal('')
@@ -80,25 +83,29 @@ function AddItemModal(props) {
         <Content>
           <FormContent>
             <h2>Destino:</h2>
-            {/*Colocar dropdown local */}
             <select style={selectStyle}>
               {cidades.map((item) => (
                 <option value={item}>{item.label}</option>
               ))}
             </select>
             <br></br>
-            <h2>Itens:</h2>
-            {/*Colocar dropdown estoque */}
-            <select style={selectStyle}>
-              {estoque?.items.map((item) => (
-                <option value={item}>{item.nome}</option>
-              ))}
-            </select>
-            
+            <h3>Adicionar Itens:</h3>
+            {estoque?.items.map((item) => (
+              <div>
+                <Label>{item.nome + ' | Peso (Kg): ' + item.peso + ' | Valor (R$): ' + item.valor} </Label> 
+                <br></br>
+                <QuantityPicker min = {0} max = {500}/>
+                <br></br>
+                <br></br>
+              </div>
+            ))}
+          <div>
+            <AddButton onClick={handleConfirm}>Confirmar</AddButton>
+          </div>
           </FormContent>
-          <AddButton onClick={handleConfirm}>Confirmar</AddButton>
         </Content>
       </Container>
+
     </ReactModal>
   )
 }
