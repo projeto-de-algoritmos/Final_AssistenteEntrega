@@ -2,7 +2,6 @@
   "entregas": [
     {
       "id": 1,
-      "data": "2022-12-01",
       "endereco": "RJ",
       "peso": "5",
       "items": [
@@ -22,7 +21,6 @@
     },
     {
       "id": 2,
-      "data": "2022-12-02",
       "endereco": "RJ",
       "peso": "3",
       "items": [
@@ -36,7 +34,6 @@
     },
     {
       "id": 3,
-      "data": "2022-12-03",
       "endereco": "BH",
       "peso": "7",
       "items": [

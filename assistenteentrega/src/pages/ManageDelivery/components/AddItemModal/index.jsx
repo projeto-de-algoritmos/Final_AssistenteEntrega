@@ -18,21 +18,18 @@ import { useSelector } from 'react-redux';
 function AddItemModal(props) {
   const estoque = useSelector(state => state.estoque)
   const [items, setItems] = useState([])
-  const [data, setData] = useState('')
   const [local, setLocal] = useState('')
 
   const { isOpen, onRequestClose, onClick } = props
 
   const clearFields = () => {
     setItems([])
-    setData('')
     setLocal('')
   }
 
   const handleConfirm = () => {
     onClick({
       items,
-      data,
       local,
     })
     clearFields()
@@ -75,7 +72,6 @@ function AddItemModal(props) {
                 <option value={item}>{item.nome}</option>
               ))}
             </select>
-            <InputText value={data} onChange={(event) => setData(event.target.value)} label="Data" type="date"/>
             {/*Colocar dropdown local */}
           </FormContent>
           <AddButton onClick={handleConfirm}>Confirmar</AddButton>

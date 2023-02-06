@@ -19,7 +19,6 @@ export default function SpreadSheet() {
           <TableRow>
             <TableCell>ID</TableCell>
             <TableCell align="right">Endereco</TableCell>
-            <TableCell align="right">Data</TableCell>
             <TableCell align="right">Peso (Kg)</TableCell>
           </TableRow>
         </TableHead>
@@ -33,7 +32,6 @@ export default function SpreadSheet() {
                 {row.id}
               </TableCell>
               <TableCell align="right">{row.endereco}</TableCell>
-              <TableCell align="right">{row.data}</TableCell>
               <TableCell align="right">{row.peso}</TableCell>
             </TableRow>
           ))}
