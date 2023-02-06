@@ -15,6 +15,12 @@ function ManageDelivery() {
     console.log(delivery)
   }, [])
 
+  const addEntrega = (itens, local, carga) => {
+    console.log(itens, local, carga)
+    
+    setIsOpen(false)
+  }
+
   return (
     <Container>
       <Header />
@@ -31,7 +37,7 @@ function ManageDelivery() {
             Criar Rota
           </AddButton>
         </ButtonContainer>
-        <AddItemModal isOpen={isOpen} onRequestClose={() => setIsOpen(false)} onClick={() => {}}/>
+        <AddItemModal isOpen={isOpen} onRequestClose={() => setIsOpen(false)} onClick={addEntrega}/>
         <CreateRouteModal isOpen={isOpenRoute} onRequestClose={() => setIsOpenRoute(false)} onClick={() => {}} entregas={delivery}/>
         {/* 
         <RemoveItemModal isOpen={isOpenRemove} onRequestClose={() => setIsOpenRemove(false)} /> */}

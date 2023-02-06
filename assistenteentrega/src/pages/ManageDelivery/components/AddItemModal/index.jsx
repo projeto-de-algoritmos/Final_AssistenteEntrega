@@ -19,11 +19,15 @@ import QuantityPicker from '../../../../components/quantitySelector/QuantityPick
 
 function AddItemModal(props) {
   const estoque = useSelector(state => state.estoque)
+  var listaItems = []
+  for(var i of estoque.items){
+    var obj = JSON.parse(JSON.stringify(i))
+    obj["quantidade"] = 0
+    listaItems.push(obj)
+  }
   
-  const [items, setItems] = useState([])
-  const [local, setLocal] = useState('')
-  const [quantidade, setQuantidade] = useState(0)
-  const [carga, setCarga] = useState()
+  const [items, setItems] = useState(listaItems)
+  const [local, setLocal] = useState('Rio de Janeiro')
 
   const { isOpen, onRequestClose, onClick } = props
 
@@ -39,9 +43,14 @@ function AddItemModal(props) {
   }
 
   const handleConfirm = () => {
+    var carga = 0 
+    for (var item of listaItems){
+      carga = carga + (item.peso * item.quantidade)
+    }
     onClick({
-      items,
+      listaItems,
       local,
+      carga
     })
     clearFields()
   }
@@ -50,6 +59,16 @@ function AddItemModal(props) {
   for (var cidade of JSON_MAP.nodes) {
     if(cidade.id != "BSB"){
       cidades.push(cidade)
+    }
+  }
+
+  const handleChange = (event, id) =>{
+    console.log(event, id)
+    for (var i in listaItems){
+      if (listaItems[i].id === id){
+        listaItems[i].quantidade = event
+        break
+      }
     }
   }
 
@@ -83,9 +102,9 @@ function AddItemModal(props) {
         <Content>
           <FormContent>
             <h2>Destino:</h2>
-            <select style={selectStyle}>
+            <select style={selectStyle} onChange={(event) => setLocal(event.target.value)}>
               {cidades.map((item) => (
-                <option value={item}>{item.label}</option>
+                <option value={item.sigla}>{item.label}</option>
               ))}
             </select>
             <br></br>
@@ -94,7 +113,7 @@ function AddItemModal(props) {
               <div>
                 <Label>{item.nome + ' | Peso (Kg): ' + item.peso + ' | Valor (R$): ' + item.valor} </Label> 
                 <br></br>
-                <QuantityPicker min = {0} max = {500}/>
+                <QuantityPicker min = {0} max = {500} onChange={v => handleChange(v, item.id)}/>
                 <br></br>
                 <br></br>
               </div>
