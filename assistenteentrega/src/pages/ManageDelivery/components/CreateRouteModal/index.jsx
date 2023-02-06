@@ -7,11 +7,12 @@ import {
   Button,
 } from './styles';
 import { FiX } from 'react-icons/fi'
-//import { AddButton } from '../../../../components/baseComponents';
+import { AddButton } from '../../../../components/baseComponents';
 import knapsack from '../../../../utils/knapsack';
 import Spreadsheet from './Spreadsheet'
 import SpreadSheetItems from './SpreadsheetItems';
 import SpreadsheetAddress from './SpreadsheetAddress';
+import RouteSteps from './RouteSteps';
 // import { Container } from './styles';
 
 function CreateRouteModal(props) {
@@ -67,7 +68,7 @@ function CreateRouteModal(props) {
         </Header>
         <Content>
           <div>
-            <h1>Algoritmo knapsack</h1>
+            <h2>Algoritmo knapsack</h2>
             <br></br>
             <span>Utilizando o algoritmo de knapsack com peso máximo {max}, a escolha ideal de entregas é:</span>
             <br></br>
@@ -81,13 +82,17 @@ function CreateRouteModal(props) {
               {SpreadSheetItems(getItems())}
             </div>
           </div>
+          <br></br>
           <div>
-            <span>A rota a ser seguida deve ser: </span>
+            <h2>Algoritmo de Dijkstra</h2>
             <br></br>
-            <SpreadsheetAddress items={knapsackItems}/>
-            
+            <span>Para a realização das entregas selecionadas, a rota a ser seguida deve ser:</span>
+            <br></br>
+            <div>
+              <RouteSteps items={knapsackItems}/>
+            </div>
+            <br></br>
           </div>
-          {/* {<AddButton onClick= {() => console.log(getItems())}>Criar</AddButton>} */}
         </Content>
       </Container>
     </ReactModal>
