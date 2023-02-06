@@ -73,7 +73,7 @@ function AddItemModal(props) {
             <InputText value={nome} onChange={(event) => setNome(event.target.value)} label="Nome" type="text"/>
             <Label>Valor</Label>
             <CurrencyInput value={valor} onChange={(event) => setValor(event.target.value)} placeholder="R$0.00" type="text" />
-            <InputText value={peso} onChange={(event) => setPeso(event.target.value)} label="Peso" type="number"/>
+            <InputText value={peso} onChange={(event) => setPeso(event.target.value)} label="Peso (Kg)" type="number"/>
             <InputText value={quantidade} onChange={(event) => setQuantidade(event.target.value)} label="Quantidade" type="number"/>
           </FormContent>
           <AddButton onClick={handleConfirm}>Confirmar</AddButton>

@@ -33,6 +33,7 @@ function RegisterItems() {
     }
 
     if (!hasElement && item.nome.trim() !== '' && item.valor !== '' && item.quantidade !== '' && item.peso !== ''){
+      item["id"] = items.length + 1
       dispatch(adicionar(item))
     }
     setIsOpen(false)
