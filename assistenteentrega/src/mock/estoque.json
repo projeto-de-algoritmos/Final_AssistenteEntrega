@@ -4,31 +4,31 @@
       "id": 1,
       "nome": "item1",
       "valor": 10,
-      "peso": 2
+      "peso": 150
     },
     {
       "id": 2,
       "nome": "item2",
       "valor": 5,
-      "peso": 3
+      "peso": 100
     },
     {
       "id": 3,
       "nome": "item3",
       "valor": 20,
-      "peso": 4
+      "peso": 200
     },
     {
       "id": 4,
       "nome": "item4",
       "valor": 15,
-      "peso": 1
+      "peso": 50
     },
     {
       "id": 5,
       "nome": "item5",
       "valor": 25,
-      "peso": 5
+      "peso": 150
     }
   ]
 }

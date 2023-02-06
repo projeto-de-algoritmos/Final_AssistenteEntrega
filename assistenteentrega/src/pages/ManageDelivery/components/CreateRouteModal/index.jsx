@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import {
   Container, 
@@ -11,13 +11,19 @@ import { FiX } from 'react-icons/fi'
 import knapsack from '../../../../utils/knapsack';
 import Spreadsheet from './Spreadsheet'
 import SpreadSheetItems from './SpreadsheetItems';
+import SpreadsheetAddress from './SpreadsheetAddress';
 // import { Container } from './styles';
 
 function CreateRouteModal(props) {
+  const [knapsackItems, setKnapsackItems] = useState([]);
   const { isOpen: isOpenRoute, onRequestClose, onClick, entregas } = props
 
-  const max = 10
+  const max = 400
   const resp = knapsack(entregas, max)
+
+  useEffect(() => {
+    setKnapsackItems(knapsack(entregas, max))
+  }, [])
 
   function getItems() {
     var items = []
@@ -60,18 +66,26 @@ function CreateRouteModal(props) {
           </Button>
         </Header>
         <Content>
-          <h1>Algoritmo knapsack</h1>
-          <br></br>
-          <span>Utilizando o algoritmo de knapsack com peso máximo {max}, a escolha ideal de entregas é:</span>
-          <br></br>
           <div>
-            {Spreadsheet(resp)}
+            <h1>Algoritmo knapsack</h1>
+            <br></br>
+            <span>Utilizando o algoritmo de knapsack com peso máximo {max}, a escolha ideal de entregas é:</span>
+            <br></br>
+            <div>
+              {Spreadsheet(resp)}
+            </div>
+            <br></br>
+            <span>Carregando os itens: </span>
+            <br></br>
+            <div>
+              {SpreadSheetItems(getItems())}
+            </div>
           </div>
-          <br></br>
-          <span>Carregando os itens: </span>
-          <br></br>
           <div>
-            {SpreadSheetItems(getItems())}
+            <span>A rota a ser seguida deve ser: </span>
+            <br></br>
+            <SpreadsheetAddress items={knapsackItems}/>
+            
           </div>
           {/* {<AddButton onClick= {() => console.log(getItems())}>Criar</AddButton>} */}
         </Content>
