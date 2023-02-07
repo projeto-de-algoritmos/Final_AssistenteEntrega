@@ -5,9 +5,45 @@
     {"id": "BH", "label": "Belo Horizonte"},
     {"id": "REC", "label": "Recife"},
     {"id": "NAT", "label": "Natal"},
-    {"id": "SAL", "label": "Salvador"}
+    {"id": "SAL", "label": "Salvador"},
+    {"id": "BSB", "label": "Brasília"}
   ],
   "edges": [
+    {
+      "start": "BSB",
+      "end": "RJ",
+      "weight": 1167
+    },
+    {
+      "start": "BSB",
+      "end": "SP",
+      "weight": 1007
+    },
+    {
+      "start": "BSB",
+      "end": "BH",
+      "weight": 739
+    },
+    {
+      "start": "BSB",
+      "end": "REC",
+      "weight": 1167
+    },
+    {
+      "start": "BSB",
+      "end": "RJ",
+      "weight": 2130
+    },
+    {
+      "start": "BSB",
+      "end": "NAT",
+      "weight": 2411
+    },
+    {
+      "start": "BSB",
+      "end": "SAL",
+      "weight": 1444
+    },
     {
        "start":"RJ",
        "end":"SP",

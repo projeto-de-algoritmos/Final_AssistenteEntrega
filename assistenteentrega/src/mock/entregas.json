@@ -1,0 +1,55 @@
+{
+  "entregas": [
+    {
+      "id": 1,
+      "endereco": "RJ",
+      "peso": 250,
+      "items": [
+        {
+          "id": 1,
+          "nome": "item1",
+          "valor": 10,
+          "peso": 150
+        },
+        {
+          "id": 2,
+          "nome": "item2",
+          "valor": 5,
+          "peso": 100
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "endereco": "RJ",
+      "peso": 100,
+      "items": [
+        {
+          "id": 2,
+          "nome": "item2",
+          "valor": 5,
+          "peso": 100
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "endereco": "BH",
+      "peso": 300,
+      "items": [
+        {
+          "id": 1,
+          "nome": "item1",
+          "valor": 10,
+          "peso": 150
+        },
+        {
+          "id": 5,
+          "nome": "item5",
+          "valor": 25,
+          "peso": 150
+        }
+      ]
+    }
+  ]
+}
