@@ -16,8 +16,8 @@ export const deliveryReducer = createSlice({
       console.log(state.entregas)  
     },
     finalizarEntrega: (state, action) => {
-      const newItems = state.items.filter((item) => item.id !== action.payload)
-      state.items = newItems
+      const newItems = state.entregas.filter((item) => item.id !== action.payload)
+      state.entregas = newItems
     },
     populateEntrega: (state, action) => {
       const { entregas } = JSON_DELIVERY

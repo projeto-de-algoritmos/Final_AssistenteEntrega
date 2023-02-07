@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import {
   Container, 
@@ -7,10 +7,8 @@ import {
   Button,
   FormContent,
   Label,
-  InputText
 } from './styles';
 import { FiX } from 'react-icons/fi'
-import CurrencyInput from '../../../../components/CurrencyInput'
 import { AddButton } from '../../../../components/baseComponents';
 import { useSelector } from 'react-redux';
 import JSON_MAP from '../../../../mock/map.json'
@@ -19,15 +17,9 @@ import QuantityPicker from '../../../../components/quantitySelector/QuantityPick
 
 function AddItemModal(props) {
   const estoque = useSelector(state => state.estoque)
-  var listaItems = []
-  for(var i of estoque.items){
-    var obj = JSON.parse(JSON.stringify(i))
-    obj["quantidade"] = 0
-    listaItems.push(obj)
-  }
-  
-  const [items, setItems] = useState(listaItems)
+  const [items, setItems] = useState([])
   const [local, setLocal] = useState('RJ')
+  const [cidades, setCidades] = useState([])
 
   const { isOpen, onRequestClose, onClick } = props
 
@@ -36,7 +28,26 @@ function AddItemModal(props) {
     backgroundColor: "#edf2ff", 
     border: "none"
   }
-  
+
+  useEffect(() => {
+    var listaItems = []
+    for(var i of estoque.items){
+      var obj = JSON.parse(JSON.stringify(i))
+      obj["quantidade"] = 0
+      listaItems.push(obj)
+    }
+    setItems(listaItems)
+
+    var cidades = []
+    for (var cidade of JSON_MAP.nodes) {
+      if(cidade.id !== "BSB"){
+        cidades.push(cidade)
+      }
+    }
+
+    setCidades(cidades)
+  }, [])
+
   const clearFields = () => {
     setItems([])
     setLocal('RJ')
@@ -45,32 +56,27 @@ function AddItemModal(props) {
   const handleConfirm = () => {
     var carga = 0 
     var valor = 0 
-    for (var item of listaItems){
+    for (var item of items){
       carga = carga + (item.peso * item.quantidade)
       valor = valor + (item.valor * item.quantidade)
     }
 
     onClick({
-      listaItems,
-      local,
-      carga,
+      items,
+      endereco: local,
+      peso: carga,
       valor
     })
+
+
     clearFields()
   }
-
-  var cidades = []
-  for (var cidade of JSON_MAP.nodes) {
-    if(cidade.id != "BSB"){
-      cidades.push(cidade)
-    }
-  }
-
+  
   const handleChange = (event, id) =>{
     console.log(event, id)
-    for (var i in listaItems){
-      if (listaItems[i].id === id){
-        listaItems[i].quantidade = event
+    for (var i in items){
+      if (items[i].id === id){
+        items[i].quantidade = event
         break
       }
     }

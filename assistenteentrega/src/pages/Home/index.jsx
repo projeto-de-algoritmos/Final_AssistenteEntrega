@@ -1,3 +1,4 @@
+import colors from '../../colors'
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Header from '../../components/Header/index.jsx';
@@ -19,6 +20,12 @@ function Home() {
     <Container>
       <Header />
       <Content>
+        <h1 style={{
+          textAlign: 'center',
+          color: colors.bg01
+        }}>
+          Tenha controle de estoques através da aba estoques, e gerencie as entregas na aba entregas
+        </h1>
       </Content>
     </Container>
   );

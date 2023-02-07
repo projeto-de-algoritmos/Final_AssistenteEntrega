@@ -11,12 +11,15 @@ import { AddButton } from '../../../../components/baseComponents';
 import knapsack from '../../../../utils/knapsack';
 import Spreadsheet from './Spreadsheet'
 import SpreadSheetItems from './SpreadsheetItems';
-import SpreadsheetAddress from './SpreadsheetAddress';
 import RouteSteps from './RouteSteps';
+import { useDispatch, useSelector } from 'react-redux';
+import { finalizarEntrega } from '../../../../store/reducers/delivery';
 // import { Container } from './styles';
 
 function CreateRouteModal(props) {
   const [knapsackItems, setKnapsackItems] = useState([]);
+  const deliverys = useSelector(state => state.delivery.entregas)
+  const dispatch = useDispatch()
   const { isOpen: isOpenRoute, onRequestClose, onClick, entregas } = props
 
   const max = 400
@@ -92,6 +95,21 @@ function CreateRouteModal(props) {
               <RouteSteps items={knapsackItems}/>
             </div>
             <br></br>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 80
+            }}>
+              <AddButton onClick={() => {
+                for(var item of knapsackItems){
+                  dispatch(finalizarEntrega(item.id))
+                }
+                onRequestClose()
+              }}>
+                Finalizar entrega
+              </AddButton>
+            </div>
           </div>
         </Content>
       </Container>
