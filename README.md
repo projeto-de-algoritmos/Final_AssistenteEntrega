@@ -20,6 +20,10 @@ Para sua elaboração, foram utilizados os algoritmos de Dijkstra e Knapsack apr
 ![MicrosoftTeams-image (1)](https://user-images.githubusercontent.com/54070461/217128127-1ec8bb50-c4fa-4edb-8bd3-b94b25e47780.png)
 ![MicrosoftTeams-image](https://user-images.githubusercontent.com/54070461/217128133-eeb2456a-8f91-44c4-82b6-d2a7e3120c28.png)
 
+## Apresentação 
+https://user-images.githubusercontent.com/54070461/217132605-42978e6c-cd0a-41e1-9835-a379bb3a8425.mp4
+
+
 
 ## Instalação 
 **Linguagem**: Javascript<br>
