@@ -10,18 +10,10 @@ export const deliveryReducer = createSlice({
   initialState,
   reducers: {
     adicionarEntrega: (state, action) => {
-      let hasElement = false
-
-      state.entregas.forEach((item) => {
-        if (item.id === action.payload.id){
-          hasElement = true
-          return
-        }
-      })
-
-      if(!hasElement)
-        state.entregas.push(action.payload)
-        
+      action.payload.id = state.entregas.length + 1   
+      
+      state.entregas.push(action.payload)
+      console.log(state.entregas)  
     },
     finalizarEntrega: (state, action) => {
       const newItems = state.items.filter((item) => item.id !== action.payload)

@@ -3,20 +3,26 @@ import Header from '../../components/Header';
 import { AddButton, ButtonContainer, Container,Content } from './styles';
 import AddItemModal from './components/AddItemModal';
 import Spreadsheet from './components/Spreadsheet';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import CreateRouteModal from './components/CreateRouteModal';
+import { adicionarEntrega } from '../../store/reducers/delivery';
 
 function ManageDelivery() {
   const [isOpen, setIsOpen] = useState(false)
   const [isOpenRoute, setIsOpenRoute] = useState(false)
   const delivery = useSelector(state => state.delivery.entregas)
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
     console.log(delivery)
   }, [])
 
-  const addEntrega = (itens, local, carga) => {
-    console.log(itens, local, carga)
+  const addEntrega = (itens) => {
+    //itens.items = itens.items.filter(item => item.quantidade !== 0)
+    console.log(itens)
+
+    dispatch(adicionarEntrega(itens))
     
     setIsOpen(false)
   }

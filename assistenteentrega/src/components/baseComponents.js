@@ -9,7 +9,5 @@ export const AddButton = styled.button`
   font-weight: bolder;
   font-size: 1rem;
   border-radius: 1rem;
-  position: absolute;
-  bottom: 10%;
   border: none;
 `

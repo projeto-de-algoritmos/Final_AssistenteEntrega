@@ -27,7 +27,7 @@ function AddItemModal(props) {
   }
   
   const [items, setItems] = useState(listaItems)
-  const [local, setLocal] = useState('Rio de Janeiro')
+  const [local, setLocal] = useState('RJ')
 
   const { isOpen, onRequestClose, onClick } = props
 
@@ -39,18 +39,22 @@ function AddItemModal(props) {
   
   const clearFields = () => {
     setItems([])
-    setLocal('')
+    setLocal('RJ')
   }
 
   const handleConfirm = () => {
     var carga = 0 
+    var valor = 0 
     for (var item of listaItems){
       carga = carga + (item.peso * item.quantidade)
+      valor = valor + (item.valor * item.quantidade)
     }
+
     onClick({
       listaItems,
       local,
-      carga
+      carga,
+      valor
     })
     clearFields()
   }
@@ -104,7 +108,7 @@ function AddItemModal(props) {
             <h2>Destino:</h2>
             <select style={selectStyle} onChange={(event) => setLocal(event.target.value)}>
               {cidades.map((item) => (
-                <option value={item.sigla}>{item.label}</option>
+                <option value={item.id}>{item.label}</option>
               ))}
             </select>
             <br></br>
