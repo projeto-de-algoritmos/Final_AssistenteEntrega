@@ -15,7 +15,11 @@ O Assitente de Entregas auxilia no gerenciamento de entregas, garantindo que ser
 Para sua elaboração, foram utilizados os algoritmos de Dijkstra e Knapsack aprendidos ao longo da disicplina de Projeto de Algoritmos. 
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+![MicrosoftTeams-image (3)](https://user-images.githubusercontent.com/54070461/217128117-7bc3ba31-e454-449a-ba74-a37d7d1db316.png)
+![MicrosoftTeams-image (2)](https://user-images.githubusercontent.com/54070461/217128121-135a25f9-8576-4ea7-b359-d795fc03b2b7.png)
+![MicrosoftTeams-image (1)](https://user-images.githubusercontent.com/54070461/217128127-1ec8bb50-c4fa-4edb-8bd3-b94b25e47780.png)
+![MicrosoftTeams-image](https://user-images.githubusercontent.com/54070461/217128133-eeb2456a-8f91-44c4-82b6-d2a7e3120c28.png)
+
 
 ## Instalação 
 **Linguagem**: Javascript<br>
